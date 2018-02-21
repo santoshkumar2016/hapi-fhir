@@ -362,6 +362,9 @@ public class RuleBuilder implements IAuthRuleBuilder {
 					for (IIdType next : theOwners) {
 						validateOwner(next);
 					}
+					/** add below two missing statements, this is causing authorization filter to fail in case of collection of owners **/
+					myInCompartmentName = theCompartmentName;
+					myInCompartmentOwners = theOwners;
 					myClassifierType = ClassifierTypeEnum.IN_COMPARTMENT;
 					return finished();
 				}
